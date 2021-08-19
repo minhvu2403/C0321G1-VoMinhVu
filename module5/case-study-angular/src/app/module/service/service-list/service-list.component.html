@@ -1,0 +1,210 @@
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Manage <b>Service</b></h2>
+        </div>
+
+        <div class="col-sm-6">
+          <a (click)="clickService()"  class="add btn btn-success" data-toggle="modal"  data-target="#exampleModal"><i
+            class="material-icons" title="add">&#xE147;</i><span>Add New Service</span></a>
+        </div>
+
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th class="pl-1">STT</th>
+        <th class="pl-1">Code</th>
+        <th class="pl-1">Name</th>
+        <th class="pl-1">Rent Type</th>
+        <th class="pl-1">Area</th>
+        <th class="pl-1">Cost</th>
+        <th class="pl-1">Max People</th>
+        <th class="pl-1">Floor</th>
+        <th class="pl-1">Status</th>
+        <th class="pl-1">Actions</th>
+      </tr>
+      </thead>
+      <tbody class="bg-white">
+
+      <tr *ngFor="let service of services| paginate: { itemsPerPage: 5, currentPage: p},  let i = index ">
+        <td class="pl-1 pr-0 align-middle">{{ i + 1 }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ service.serviceCode }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ service.serviceName }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ service.rentType.rentTypeName }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ service.serviceArea }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ service.serviceCost}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ service.serviceMaxPeople }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ service.numberOfFloor }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ service.serviceStatus }}</td>
+        <td class="pl-1 pr-0 align-middle">
+          <a (click)="onEdit(service)" style="cursor: pointer" class="edit eBtn" data-toggle="modal"  data-target="#exampleModal">
+            <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+          </a>
+          <a (click)="getDeleteService(service)" class="delete" style="cursor: pointer" data-toggle="modal"  data-target="#exampleModal2">
+            <i class="material-icons" data-toggle="tooltip" title="Delete" >&#xE872;</i>
+          </a>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-end">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
+
+<!--Modal Create & Edit-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white ">
+        <h5 class="modal-title " *ngIf="showAdd">Create <b>Service</b></h5>
+        <h5 class="modal-title "  *ngIf="showUpdate">Update <b>Service</b></h5>
+        <button type="button" class="btn-close " data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate [formGroup]="serviceForm">
+          <div class="row">
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label for="validationTooltip02">Service Code <span style="color:red;">*</span>:</label>
+                <input type="text" id="validationTooltip02" class="form-control" placeholder="Enter code... " formControlName="serviceCode" autocomplete="off">
+                <div class='text-danger' *ngFor="let valid of validation_messages.serviceCode">
+                  <div class="error-message" *ngIf="checkVail('serviceCode', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Rent Type <span style="color:red;">*</span>: </label>
+                <select class="form-control select" id="validationTooltip01" formControlName="rentType"[(ngModel)]="selectedValue" [compareWith]="compareFn" >
+                  <option value="" disabled>***Select rentType***</option>
+                  <option *ngFor="let type of rentTypes"
+                          [ngValue]="type">{{type.rentTypeName}}</option>
+                </select>
+<!--                <div class='text-danger' *ngFor="let valid of validation_messages.">-->
+<!--                  <div class="error-message" *ngIf="checkVail('customerType', valid.type)">-->
+<!--                    {{valid.msg}}-->
+<!--                  </div>-->
+<!--                </div>-->
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Name <span style="color:red;">*</span>:</label>
+                <input type="text" class="form-control" placeholder="Enter name... " formControlName="serviceName" autocomplete="off">
+                <div class='text-danger' *ngFor="let valid of validation_messages.serviceName">
+                  <div class="error-message" *ngIf="checkVail('serviceName', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group position-relative">
+                <label>Area <span style="color:red;">*</span>:</label>
+                <input type="text" class="form-control" placeholder="Enter area" formControlName="serviceArea">
+                <div class='text-danger' *ngFor="let valid of validation_messages.serviceArea">
+                  <div class="error-message" *ngIf="checkVail('serviceArea', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Cost <span style="color:red;">*</span>: </label>
+                <input type="text" class="form-control" placeholder="Enter cost... " formControlName="serviceCost" autocomplete="off">
+                <div class='text-danger' *ngFor="let valid of validation_messages.serviceCost">
+                  <div class="error-message" *ngIf="checkVail('serviceCost', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Max People<span style="color:red;">*</span>: </label>
+                <input type="text" class="form-control" placeholder="Enter max people..." formControlName="serviceMaxPeople" autocomplete="off">
+                <div class='text-danger' *ngFor="let valid of validation_messages.serviceMaxPeople">
+                  <div class="error-message" *ngIf="checkVail('serviceMaxPeople', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Floor<span style="color:red;">*</span>: </label>
+                <input type="email" class="form-control" placeholder="Enter floor..." formControlName="numberOfFloor">
+                <div class='text-danger' *ngFor="let valid of validation_messages.numberOfFloor">
+                  <div class="error-message" *ngIf="checkVail('numberOfFloor', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Status<span style="color:red;">*</span>: </label>
+                <input type="text" class="form-control" placeholder="Enter address... " formControlName="serviceStatus">
+                <div class='text-danger' *ngFor="let valid of validation_messages.serviceStatus">
+                  <div class="error-message" *ngIf="checkVail('serviceStatus', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" *ngIf="showAdd" [disabled]="!serviceForm.valid" (click)="createService()" data-dismiss="modal">Create</button>
+        <button type="submit" class="btn btn-primary" *ngIf="showUpdate" [disabled]="!serviceForm.valid" (click)="updateService()" data-dismiss="modal">Update</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete -->
+<div
+  class="modal fade"
+  id="exampleModal2"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel2"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLabel2">Delete <b>Customer</b></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete the <span style="font-weight: bold">Service:</span><br><span style="color:red; font-weight: bold" >{{nameService}}</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-danger" (click)="deleteService()" data-dismiss="modal" >Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

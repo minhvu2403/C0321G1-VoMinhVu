@@ -1,0 +1,18 @@
+<!--<app-customer-list></app-customer-list>-->
+<!--<app-service-list></app-service-list>-->
+<!--<app-employee-list></app-employee-list>-->
+<!--<app-contract-list></app-contract-list>-->
+<!--<app-contract-detail></app-contract-detail>-->
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+    <!-- <mat-drawer mode="side" opened="true"> -->
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+

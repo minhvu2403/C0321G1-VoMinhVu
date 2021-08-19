@@ -1,0 +1,132 @@
+<!--<div class="modal-header">-->
+<!--  <h4 class="modal-title" id="modal-basic-title">Profile update</h4>-->
+<!--  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">-->
+<!--    <span aria-hidden="true">&times;</span>-->
+<!--  </button>-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--  <form>-->
+<!--    <div class="form-group">-->
+<!--      <label for="dateOfBirth">Date of birth</label>-->
+<!--      <div class="input-group">-->
+<!--        <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">-->
+<!--        <div class="input-group-append">-->
+<!--          <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>-->
+<!--</div>-->
+
+
+<div class="row">
+  <div class="container  justify-content-center ">
+    <div class="">
+      <form class="needs-validation" novalidate [formGroup]="customerForm" (ngSubmit)="createCustomer()">
+        <div class="row">
+          <div class="col-6 position-relative">
+            <div class="form-group">
+              <label for="validationTooltip02">Customer Code <span style="color:red;">*</span>:</label>
+              <input type="text" id="validationTooltip02" class="form-control" placeholder="Enter code... " formControlName="customerCode" autocomplete="off">
+              <div class='text-danger' *ngFor="let valid of validation_messages.customerCode">
+               <div class="error-message" *ngIf="checkVail('customerCode', valid.type)">
+                 {{valid.msg}}
+               </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 position-relative">
+            <div class="form-group">
+              <label>Type ID <span style="color:red;">*</span>: </label>
+              <select class="form-control" id="validationTooltip01" formControlName="customerType">
+                <option value="">---Select type customer---</option>
+                <option *ngFor="let type of customerTypes"
+                        [ngValue]="type">{{type.customerTypeName}}</option>
+              </select>
+              <div class='text-danger' *ngFor="let valid of validation_messages.customerType">
+                <div class="error-message" *ngIf="checkVail('customerType', valid.type)">
+                  {{valid.msg}}
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="col-6 position-relative">
+             <div class="form-group">
+               <label>Name <span style="color:red;">*</span>:</label>
+               <input type="text" class="form-control" placeholder="Enter name... " formControlName="customerName" autocomplete="off">
+               <div class='text-danger' *ngFor="let valid of validation_messages.customerName">
+                 <div class="error-message" *ngIf="checkVail('customerName', valid.type)">
+                   {{valid.msg}}
+                 </div>
+               </div>
+             </div>
+           </div>
+        <div class="col-6">
+          <div class="form-group position-relative">
+            <label>Birthday <span style="color:red;">*</span>:</label>
+            <input type="date" class="form-control" placeholder="Enter birthday" formControlName="dateOfBirth">
+            <div class='text-danger' *ngFor="let valid of validation_messages.dateOfBirth">
+              <div class="error-message" *ngIf="checkVail('dateOfBirth', valid.type)">
+                {{valid.msg}}
+              </div>
+            </div>
+          </div>
+        </div>
+           <div class="col-6 position-relative">
+             <div class="form-group">
+               <label>ID Card <span style="color:red;">*</span>: </label>
+               <input type="text" class="form-control" placeholder="Enter id card... " formControlName="customerCard" autocomplete="off">
+               <div class='text-danger' *ngFor="let valid of validation_messages.customerCard">
+                 <div class="error-message" *ngIf="checkVail('customerCard', valid.type)">
+                   {{valid.msg}}
+                 </div>
+               </div>
+             </div>
+           </div>
+          <div class="col-6 position-relative">
+            <div class="form-group">
+              <label>Phone<span style="color:red;">*</span>: </label>
+              <input type="text" class="form-control" placeholder="Enter phone number..." formControlName="customerPhone" autocomplete="off">
+              <div class='text-danger' *ngFor="let valid of validation_messages.customerPhone">
+                <div class="error-message" *ngIf="checkVail('customerPhone', valid.type)">
+                  {{valid.msg}}
+                </div>
+              </div>
+            </div>
+          </div>
+           <div class="col-6 position-relative">
+             <div class="form-group">
+               <label>Email<span style="color:red;">*</span>: </label>
+               <input type="email" class="form-control" placeholder="Enter email..." formControlName="customerEmail">
+               <div class='text-danger' *ngFor="let valid of validation_messages.customerEmail">
+                 <div class="error-message" *ngIf="checkVail('customerEmail', valid.type)">
+                   {{valid.msg}}
+                 </div>
+               </div>
+             </div>
+           </div>
+          <div class="col-6 position-relative">
+            <div class="form-group">
+              <label>Address<span style="color:red;">*</span>: </label>
+              <input type="text" class="form-control" placeholder="Enter address... " formControlName="customerAddress">
+              <div class='text-danger' *ngFor="let valid of validation_messages.customerAddress">
+                <div class="error-message" *ngIf="checkVail('customerAddress', valid.type)">
+                  {{valid.msg}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-end footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal" id="closeModal"  >Close</button>
+            <button type="submit" class="btn btn-primary no-right" [disabled]="!customerForm.valid"  data-dismiss="modal" (click)="createCustomer()">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

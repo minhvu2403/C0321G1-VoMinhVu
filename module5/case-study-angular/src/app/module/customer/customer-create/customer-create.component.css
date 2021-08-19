@@ -1,0 +1,83 @@
+.footer{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: .75rem;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 20px;
+}
+.footer button{
+  width: 100px;
+  margin-right: 20px;
+}
+.footer .no-right{
+  margin-right: 0 !important;
+}
+
+
+.error-message{
+  top: 100%;
+  z-index: 5;
+  max-width: 100%;
+  padding: .25rem .5rem;
+  margin-top: -3px;
+  background-color: rgba(249,49,84,.9);
+  border-radius: .25rem!important;
+  color: #fff;
+  position: absolute;
+  font-size: .875rem;
+}
+
+/*input.form-control{*/
+/*  margin-bottom: 1rem;*/
+/*  background-image: none;*/
+/*  border-color: #f93154;*/
+/*}*/
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+input.ng-invalid.ng-touched{
+  border: 2px solid #f93154;
+}
+input.ng-valid{
+  border: 2px solid #00b74a;
+}
+input.ng-invalid.ng-touched~.form-label {
+  color:#f93154 ;
+
+}
+input.ng-valid~.form-label{
+  color:  #00b74a;
+
+}
+input.ng-invalid.ng-touched{
+  padding-right: calc(1.6em + .75rem);
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23f93154'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3E%3Ccircle cx='6' cy='8.2' r='.6' fill='%23f93154' stroke='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right calc(.4em + .1875rem) center;
+  background-size: calc(.8em + .375rem) calc(.8em + .375rem);
+}
+input.ng-valid{
+  padding-right: calc(1.6em + .75rem);
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%2300b74a' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right calc(.4em + .1875rem) center;
+  background-size: calc(.8em + .375rem) calc(.8em + .375rem);
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-leading{
+  border-top: .125rem solid #f93154;
+  border-bottom: .125rem solid #f93154;
+  border-left: .125rem solid #f93154;
+}
+

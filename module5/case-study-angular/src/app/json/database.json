@@ -1,0 +1,571 @@
+{
+  "customer-types": [
+    {
+      "id": 1,
+      "customerTypeName": "Diamond"
+    },
+    {
+      "id": 2,
+      "customerTypeName": "Platinum"
+    },
+    {
+      "id": 3,
+      "customerTypeName": "Gold"
+    },
+    {
+      "id": 4,
+      "customerTypeName": "Silver"
+    },
+    {
+      "id": 5,
+      "customerTypeName": "Member"
+    }
+  ],
+  "customers": [
+    {
+      "id": 5,
+      "customerCode": "KH-2541",
+      "customerName": "Long Long",
+      "dateOfBirth": "1995-10-03",
+      "customerCard": "123456789",
+      "customerPhone": "0901234568",
+      "customerAddress": "danang",
+      "customerEmail": "hieu.dn@gmail.com",
+      "customerType": {
+        "id": 3,
+        "customerTypeName": "Gold"
+      }
+    },
+    {
+      "customerCode": "KH-0005",
+      "customerName": "Minh",
+      "dateOfBirth": "2021-08-27",
+      "customerCard": "126453435",
+      "customerPhone": "0907846524",
+      "customerEmail": "tuyd@gmail.com",
+      "customerAddress": "ton dan",
+      "customerType": {
+        "id": 2,
+        "customerTypeName": "Platinum"
+      },
+      "id": 7
+    },
+    {
+      "id": 9,
+      "customerCode": "KH-0019",
+      "customerName": "Huey",
+      "dateOfBirth": "2021-08-12",
+      "customerCard": "978473324",
+      "customerPhone": "0908746456",
+      "customerAddress": "Hoa cuong",
+      "customerEmail": "gjtu@gmail.com",
+      "customerType": {
+        "id": 2,
+        "customerTypeName": "Platinum"
+      }
+    },
+    {
+      "id": 13,
+      "customerCode": "KH-0056",
+      "customerName": "Vy",
+      "dateOfBirth": "2021-08-14",
+      "customerCard": "123456789",
+      "customerPhone": "0908784632",
+      "customerAddress": "Hoa vang",
+      "customerEmail": "fjgu@gmil.com",
+      "customerType": {
+        "id": 3,
+        "customerTypeName": "Gold"
+      }
+    },
+    {
+      "id": 16,
+      "customerCode": "KH-0908",
+      "customerName": "glojh",
+      "dateOfBirth": "2021-08-13",
+      "customerCard": "584729532",
+      "customerPhone": "0907876742",
+      "customerAddress": "gjiue",
+      "customerEmail": "otiut@gmail.com",
+      "customerType": {
+        "id": 3,
+        "customerTypeName": "Gold"
+      }
+    },
+    {
+      "customerCode": "KH-0998",
+      "customerName": "Nhuyen",
+      "dateOfBirth": "2021-08-26",
+      "customerCard": "984736532",
+      "customerPhone": "0908585779",
+      "customerEmail": "yiu@gmail.com",
+      "customerAddress": "tiujgd",
+      "customerType": {
+        "id": 4,
+        "customerTypeName": "Silver"
+      },
+      "id": 17
+    },
+    {
+      "id": 18,
+      "customerCode": "KH-9788",
+      "customerName": "Toi da sua no",
+      "dateOfBirth": "2021-08-20",
+      "customerCard": "385746231",
+      "customerPhone": "0908786576",
+      "customerAddress": "iutyf",
+      "customerEmail": "gjtu@gmail.com",
+      "customerType": {
+        "id": 2,
+        "customerTypeName": "Platinum"
+      }
+    },
+    {
+      "id": 19,
+      "customerCode": "KH-0098",
+      "customerName": "Minh vu",
+      "dateOfBirth": "2021-08-13",
+      "customerCard": "857469374",
+      "customerPhone": "0908956746",
+      "customerAddress": "tuyrh",
+      "customerEmail": "gjtu@gmail.com",
+      "customerType": {
+        "id": 1,
+        "customerTypeName": "Diamond"
+      }
+    },
+    {
+      "id": 20,
+      "customerCode": "KH-9894",
+      "customerName": "Toi da create",
+      "dateOfBirth": "2021-08-13",
+      "customerCard": "958746535",
+      "customerPhone": "0907876756",
+      "customerAddress": "Cẩm Lệ",
+      "customerEmail": "euty@gmail.com",
+      "customerType": {
+        "id": 3,
+        "customerTypeName": "Gold"
+      }
+    },
+    {
+      "customerCode": "KH-8979",
+      "customerName": "Nguyen Thuy",
+      "dateOfBirth": "2021-08-13",
+      "customerCard": "587485465",
+      "customerPhone": "0906785645",
+      "customerEmail": "ahfyd@gmail.com",
+      "customerAddress": "Thanh Khue",
+      "customerType": {
+        "id": 3,
+        "customerTypeName": "Gold"
+      },
+      "id": 21
+    }
+  ],
+  "positions": [
+    {
+      "id": 1,
+      "positionName": "Lễ tân"
+    },
+    {
+      "id": 2,
+      "positionName": "Phục vụ"
+    },
+    {
+      "id": 3,
+      "positionName": "Chuyên viên"
+    },
+    {
+      "id": 4,
+      "positionName": "Giám sát"
+    },
+    {
+      "id": 5,
+      "positionName": "Quản lý"
+    },
+    {
+      "id": 6,
+      "positionName": "Giám đốc"
+    }
+  ],
+  "divisions": [
+    {
+      "id": 1,
+      "divisionName": "Sale – Marketing"
+    },
+    {
+      "id": 2,
+      "divisionName": "Hành Chính"
+    },
+    {
+      "id": 3,
+      "divisionName": "Phục vụ"
+    },
+    {
+      "id": 4,
+      "divisionName": "Quản lý"
+    }
+  ],
+  "education-degrees": [
+    {
+      "id": 1,
+      "educationDegreeName": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "educationDegreeName": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "educationDegreeName": "Đại học "
+    },
+    {
+      "id": 4,
+      "educationDegreeName": "Sau đại học"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "employeeName": "Quynh",
+      "employeeBirthday": "1999-10-03",
+      "employeeCard": "123456789",
+      "employeeSalary": "1500",
+      "employeePhone": "0901234567",
+      "employeeEmail": "quynh@gmail.com",
+      "employeeAddress": "Quang Binh",
+      "division": {
+        "id": 1,
+        "divisionName": "Sale – Marketing"
+      },
+      "educationDegree": {
+        "id": 2,
+        "educationDegreeName": "Cao đẳng"
+      },
+      "position": {
+        "id": 3,
+        "positionName": "Chuyên viên"
+      }
+    },
+    {
+      "id": 2,
+      "employeeName": "hoa",
+      "employeeBirthday": "1999-10-03",
+      "employeeCard": "123456789",
+      "employeeSalary": "1200",
+      "employeePhone": "0901234567",
+      "employeeEmail": "hoa@gmail.com",
+      "employeeAddress": "da nang",
+      "division": {
+        "id": 2,
+        "divisionName": "Hành Chính"
+      },
+      "educationDegree": {
+        "id": 2,
+        "educationDegreeName": "Cao đẳng"
+      },
+      "position": {
+        "id": 2,
+        "positionName": "Phục vụ"
+      }
+    },
+    {
+      "employeeName": "Long",
+      "employeeBirthday": "2021-08-07",
+      "employeeCard": "123456789",
+      "employeeSalary": "5764",
+      "employeePhone": "0906785476",
+      "employeeEmail": "anc@gmail.com",
+      "employeeAddress": "Ton dan",
+      "division": {
+        "id": 2,
+        "divisionName": "Hành Chính"
+      },
+      "position": {
+        "id": 2,
+        "positionName": "Phục vụ"
+      },
+      "educationDegree": {
+        "id": 2,
+        "educationDegreeName": "Cao đẳng"
+      },
+      "id": 3
+    },
+    {
+      "employeeName": "Minh vu",
+      "employeeBirthday": "2021-08-14",
+      "employeeCard": "123764535",
+      "employeeSalary": "500",
+      "employeePhone": "0907876453",
+      "employeeEmail": "minhvu@gmail.com",
+      "employeeAddress": "Quang Nam",
+      "division": {
+        "id": 1,
+        "divisionName": "Sale – Marketing"
+      },
+      "position": {
+        "id": 3,
+        "positionName": "Chuyên viên"
+      },
+      "educationDegree": {
+        "id": 3,
+        "educationDegreeName": "Đại học "
+      },
+      "id": 4
+    }
+  ],
+  "rent-types": [
+    {
+      "id": 1,
+      "rentTypeName": "Villa",
+      "rentTypeCost": 1500
+    },
+    {
+      "id": 2,
+      "rentTypeName": "House",
+      "rentTypeCost": 1000
+    },
+    {
+      "id": 3,
+      "rentTypeName": "Room",
+      "rentTypeCost": 500
+    }
+  ],
+  "services": [
+    {
+      "serviceCode": "DV-1254",
+      "serviceName": "villa1",
+      "serviceArea": 250,
+      "serviceCost": 2000,
+      "serviceMaxPeople": 5,
+      "serviceStatus": "OK",
+      "numberOfFloor": 3,
+      "rentType": {
+        "id": 1,
+        "rentTypeName": "Villa",
+        "rentTypeCost": 1500
+      },
+      "id": 1
+    },
+    {
+      "id": 2,
+      "serviceCode": "DV-0024",
+      "serviceName": "Roms",
+      "serviceArea": 80,
+      "serviceCost": 1500,
+      "serviceMaxPeople": 3,
+      "numberOfFloor": 6,
+      "serviceStatus": "Busy",
+      "rentType": {
+        "id": 3,
+        "rentTypeName": "Room",
+        "rentTypeCost": 500
+      }
+    },
+    {
+      "serviceCode": "DV-8575",
+      "serviceName": "Long",
+      "serviceArea": "45",
+      "serviceCost": "8",
+      "serviceMaxPeople": "32",
+      "numberOfFloor": "4",
+      "serviceStatus": "OK",
+      "rentType": {
+        "id": 2,
+        "rentTypeName": "House",
+        "rentTypeCost": 1000
+      },
+      "id": 3
+    }
+  ],
+  "attach-services": [
+    {
+      "id": 1,
+      "attachServiceName": "message",
+      "attachServiceCost": 300,
+      "attachServiceUnit": "USA",
+      "attachServiceStatus": "Ok"
+    },
+    {
+      "id": 2,
+      "attachServiceName": "karaoke",
+      "attachServiceCost": 500,
+      "attachServiceUnit": "USA",
+      "attachServiceStatus": "Ban"
+    },
+    {
+      "id": 3,
+      "attachServiceName": "food",
+      "attachServiceCost": 100,
+      "attachServiceUnit": "USA",
+      "attachServiceStatus": "Ss"
+    }
+  ],
+  "contract-details": [
+    {
+      "contractId": "1",
+      "quantity": "2",
+      "attachService": {
+        "id": 2,
+        "attachServiceName": "karaoke",
+        "attachServiceCost": 500,
+        "attachServiceUnit": "USA",
+        "attachServiceStatus": "Ban"
+      },
+      "id": 1
+    },
+    {
+      "contractId": "1",
+      "quantity": "2",
+      "attachService": {
+        "id": 3,
+        "attachServiceName": "food",
+        "attachServiceCost": 100,
+        "attachServiceUnit": "USA",
+        "attachServiceStatus": "Ss"
+      },
+      "id": 2
+    },
+    {
+      "contractId": "2",
+      "quantity": "2",
+      "attachService": {
+        "id": 1,
+        "attachServiceName": "message",
+        "attachServiceCost": 300,
+        "attachServiceUnit": "USA",
+        "attachServiceStatus": "Ok"
+      },
+      "id": 3
+    },
+    {
+      "contractId": "2",
+      "quantity": "8",
+      "attachService": {
+        "id": 1,
+        "attachServiceName": "message",
+        "attachServiceCost": 300,
+        "attachServiceUnit": "USA",
+        "attachServiceStatus": "Ok"
+      },
+      "id": 4
+    }
+  ],
+  "contracts": [
+    {
+      "customer": {
+        "customerCode": "KH-2541",
+        "customerName": "long",
+        "dateOfBirth": "1995-10-03",
+        "customerCard": "123456789",
+        "customerPhone": "0901234568",
+        "customerEmail": "longdn@gmail.com",
+        "customerAddress": "danang",
+        "customerType": {
+          "id": 3,
+          "customerTypeName": "Gold"
+        },
+        "id": 5
+      },
+      "employee": {
+        "employeeName": "haqh",
+        "employeeBirthday": "1999-10-03",
+        "employeeCard": "123456789",
+        "employeeSalary": "1500",
+        "employeePhone": "0901234567",
+        "employeeEmail": "haqh310@gmail.com",
+        "employeeAddress": "qb",
+        "division": {
+          "id": 1,
+          "divisionName": "Sale – Marketing"
+        },
+        "position": {
+          "id": 3,
+          "positionName": "Chuyên viên"
+        },
+        "educationDegree": {
+          "id": 2,
+          "educationDegreeName": "Cao đẳng"
+        },
+        "id": 1
+      },
+      "service": {
+        "serviceCode": "DV-1254",
+        "serviceName": "room12",
+        "serviceArea": 30,
+        "serviceCost": 300,
+        "serviceMaxPeople": 2,
+        "serviceStatus": "SS",
+        "numberOfFloor": 3,
+        "rentType": {
+          "id": 3,
+          "rentTypeName": "Room",
+          "rentTypeCost": 500
+        },
+        "id": 2
+      },
+      "contractStartDate": "2021-07-03",
+      "contractEndDate": "2021-08-03",
+      "contractDeposit": "1000",
+      "id": 1
+    },
+    {
+      "customer": {
+        "customerCode": "KH-0005",
+        "customerName": "Minh",
+        "dateOfBirth": "2021-08-27",
+        "customerCard": "126453435",
+        "customerPhone": "0907846524",
+        "customerEmail": "tuyd@gmail.com",
+        "customerAddress": "ton dan",
+        "customerType": {
+          "id": 2,
+          "customerTypeName": "Platinum"
+        },
+        "id": 7
+      },
+      "employee": {
+        "id": 2,
+        "employeeName": "hoa",
+        "employeeBirthday": "1999-10-03",
+        "employeeCard": "123456789",
+        "employeeSalary": "1200",
+        "employeePhone": "0901234567",
+        "employeeEmail": "hoa@gmail.com",
+        "employeeAddress": "da nang",
+        "division": {
+          "id": 2,
+          "divisionName": "Hành Chính"
+        },
+        "educationDegree": {
+          "id": 2,
+          "educationDegreeName": "Cao đẳng"
+        },
+        "position": {
+          "id": 2,
+          "positionName": "Phục vụ"
+        }
+      },
+      "service": {
+        "serviceCode": "DV-1254",
+        "serviceName": "villa1",
+        "serviceArea": 250,
+        "serviceCost": 2000,
+        "serviceMaxPeople": 5,
+        "serviceStatus": "OK",
+        "numberOfFloor": 3,
+        "rentType": {
+          "id": 1,
+          "rentTypeName": "Villa",
+          "rentTypeCost": 1500
+        },
+        "id": 1
+      },
+      "contractStartDate": "2021-08-20",
+      "contractEndDate": "2021-08-27",
+      "contractDeposit": "890",
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Employee</div>
+  <div class="page__content shadow position-relative">
+    <div class="page__content-data position-absolute">
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Manage <b>Employee</b></h2>
+        </div>
+
+        <div class="col-sm-6">
+          <a (click)="openDialog()" class="add btn btn-success" data-toggle="modal" data-target="#exampleModal"><i
+            class="material-icons" title="add">&#xE147;</i><span>Add New Employee</span></a>
+        </div>
+
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th class="pl-1">STT</th>
+        <th class="pl-1">Name</th>
+        <th class="pl-1">Position</th>
+        <th class="pl-1">Division</th>
+        <th class="pl-1">Birthday</th>
+        <th class="pl-1">Id Card</th>
+        <th class="pl-1">Salary</th>
+        <th class="pl-1">Phone</th>
+        <th class="pl-1">Email</th>
+        <th class="pl-1">Address</th>
+        <th class="pl-1">Actions</th>
+      </tr>
+      </thead>
+      <tbody class="bg-white">
+
+      <tr *ngFor="let employee of employees| paginate: { itemsPerPage: 5, currentPage: p},  let i = index ">
+        <td class="pl-1 pr-0 align-middle">{{ i + 1 }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ employee.employeeName }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ employee.position.positionName }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ employee.division.divisionName }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ employee.employeeBirthday| date:'dd-MM-yyyy' }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ employee.employeeCard}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ employee.employeeSalary}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ employee.employeePhone }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ employee.employeeEmail }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ employee.employeeAddress }}</td>
+        <td class="pl-1 pr-0 align-middle">
+          <a (click)="onEdit(employee)" style="cursor: pointer" class="edit eBtn" data-toggle="modal"
+             data-target="#exampleModal">
+            <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+          </a>
+          <a (click)="getDeleteEmployee(employee)" class="delete" style="cursor: pointer" data-toggle="modal"
+             data-target="#exampleModal2">
+            <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+          </a>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-end">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--Modal Create & Edit-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white ">
+        <h5 class="modal-title " *ngIf="showAdd">Create <b>Employee</b></h5>
+        <h5 class="modal-title " *ngIf="showUpdate">Update <b>Employee</b></h5>
+        <button type="button" class="btn-close " data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation" novalidate [formGroup]="employeeForm">
+          <div class="row">
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label for="validationTooltip02">Employee Name <span style="color:red;">*</span>:</label>
+                <input type="text" id="validationTooltip02" class="form-control" placeholder="Enter name... "
+                       formControlName="employeeName" autocomplete="off">
+                <div class='text-danger' *ngFor="let valid of validation_messages.employeeName">
+                  <div class="error-message" *ngIf="checkVail('employeeName', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Division <span style="color:red;">*</span>: </label>
+                <select class="form-control select" id="validationTooltip01" formControlName="division"
+                        [(ngModel)]="selectedValueDivision" [compareWith]="compareFn">
+                  <option value="" disabled>***Select type division***</option>
+                  <option *ngFor="let type of divisions"
+                          [ngValue]="type">{{type.divisionName}}</option>
+                </select>
+                <!--                <div class='text-danger' *ngFor="let valid of validation_messages">-->
+                <!--                  <div class="error-message" *ngIf="checkVail('customerType', valid.type)">-->
+                <!--                    {{valid.msg}}-->
+                <!--                  </div>-->
+                <!--                </div>-->
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Position <span style="color:red;">*</span>: </label>
+                <select class="form-control select" id="validationTooltip10" formControlName="position"
+                        [(ngModel)]="selectedValuePosition" [compareWith]="compareFn">
+                  <option value="" disabled>***Select type position***</option>
+                  <option *ngFor="let type of positions"
+                          [ngValue]="type">{{type.positionName}}</option>
+                </select>
+                <!--                <div class='text-danger' *ngFor="let valid of validation_messages">-->
+                <!--                  <div class="error-message" *ngIf="checkVail('customerType', valid.type)">-->
+                <!--                    {{valid.msg}}-->
+                <!--                  </div>-->
+                <!--                </div>-->
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Education Degree <span style="color:red;">*</span>: </label>
+                <select class="form-control select" id="validationTooltip11" formControlName="educationDegree"
+                        [(ngModel)]="selectedValueEducation" [compareWith]="compareFn">
+                  <option value="" disabled>***Select type education***</option>
+                  <option *ngFor="let type of educationDegrees"
+                          [ngValue]="type">{{type.educationDegreeName}}</option>
+                </select>
+                <!--                <div class='text-danger' *ngFor="let valid of validation_messages">-->
+                <!--                  <div class="error-message" *ngIf="checkVail('customerType', valid.type)">-->
+                <!--                    {{valid.msg}}-->
+                <!--                  </div>-->
+                <!--                </div>-->
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group position-relative">
+                <label>Birthday <span style="color:red;">*</span>:</label>
+                <input type="date" class="form-control" placeholder="Enter birthday"
+                       formControlName="employeeBirthday">
+                <div class='text-danger' *ngFor="let valid of validation_messages. employeeBirthday">
+                  <div class="error-message" *ngIf="checkVail('employeeBirthday', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>ID Card <span style="color:red;">*</span>: </label>
+                <input type="text" class="form-control" placeholder="Enter id card... " formControlName="employeeCard"
+                       autocomplete="off">
+                <div class='text-danger' *ngFor="let valid of validation_messages.employeeCard">
+                  <div class="error-message" *ngIf="checkVail('employeeCard', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Salary <span style="color:red;">*</span>: </label>
+                <input type="text" class="form-control" placeholder="Enter salary... " formControlName="employeeSalary"
+                       autocomplete="off">
+                <div class='text-danger' *ngFor="let valid of validation_messages.employeeSalary">
+                  <div class="error-message" *ngIf="checkVail('employeeSalary', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Phone<span style="color:red;">*</span>: </label>
+                <input type="text" class="form-control" placeholder="Enter phone number..."
+                       formControlName="employeePhone" autocomplete="off">
+                <div class='text-danger' *ngFor="let valid of validation_messages.employeePhone">
+                  <div class="error-message" *ngIf="checkVail('employeePhone', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Email<span style="color:red;">*</span>: </label>
+                <input type="email" class="form-control" placeholder="Enter email..." formControlName="employeeEmail">
+                <div class='text-danger' *ngFor="let valid of validation_messages.employeeEmail">
+                  <div class="error-message" *ngIf="checkVail('employeeEmail', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative">
+              <div class="form-group">
+                <label>Address<span style="color:red;">*</span>: </label>
+                <input type="text" class="form-control" placeholder="Enter address... "
+                       formControlName="employeeAddress">
+                <div class='text-danger' *ngFor="let valid of validation_messages.employeeAddress">
+                  <div class="error-message" *ngIf="checkVail('employeeAddress', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" *ngIf="showAdd" [disabled]="!employeeForm.valid"
+                (click)="createEmployee()" data-dismiss="modal">Create
+        </button>
+        <button type="submit" class="btn btn-primary" *ngIf="showUpdate" [disabled]="!employeeForm.valid"
+                (click)="updateEmployee()" data-dismiss="modal">Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete -->
+<div
+  class="modal fade"
+  id="exampleModal2"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel2"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLabel2">Delete <b>Employee</b></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete the <span style="font-weight: bold">Employee:</span><br><span
+        style="color:red; font-weight: bold">{{nameEmployee}}</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-danger" (click)="deleteEmployee()" data-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
