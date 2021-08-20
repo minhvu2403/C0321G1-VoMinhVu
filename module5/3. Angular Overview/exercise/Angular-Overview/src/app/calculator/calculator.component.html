@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Simple Calculator</h2>
+  <label>First Operand:</label>
+  <input type="number" class="form-control" [(ngModel)]="firstOperand">
+  <br>
+  <label>
+    <select class="form-select"  [(ngModel)]="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+  </label>
+  <br>
+  <label> Second Operand</label>
+  <input type="number" class="form-control" [(ngModel)]="secondOperand">
+  <br>
+  <button type="submit" (click)="calculate()">Calculator</button>
+  <h3>Result:{{result}}</h3>
+</div>
+
