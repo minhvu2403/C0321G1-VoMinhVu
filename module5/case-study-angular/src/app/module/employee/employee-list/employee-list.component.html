@@ -1,7 +1,3 @@
-<div class="container-fluid page">
-  <div class="d-flex page__box p-3 mt-2">Employee</div>
-  <div class="page__content shadow position-relative">
-    <div class="page__content-data position-absolute">
 <div class="container">
   <div class="table-wrapper">
     <div class="table-title">
@@ -11,7 +7,7 @@
         </div>
 
         <div class="col-sm-6">
-          <a (click)="openDialog()" class="add btn btn-success" data-toggle="modal" data-target="#exampleModal"><i
+          <a (click)="clickEmployee()" class="add btn btn-success" data-toggle="modal" data-target="#exampleModal"><i
             class="material-icons" title="add">&#xE147;</i><span>Add New Employee</span></a>
         </div>
 
@@ -20,17 +16,17 @@
     <table class="table table-striped table-hover">
       <thead>
       <tr>
-        <th class="pl-1">STT</th>
-        <th class="pl-1">Name</th>
-        <th class="pl-1">Position</th>
-        <th class="pl-1">Division</th>
-        <th class="pl-1">Birthday</th>
-        <th class="pl-1">Id Card</th>
-        <th class="pl-1">Salary</th>
-        <th class="pl-1">Phone</th>
-        <th class="pl-1">Email</th>
-        <th class="pl-1">Address</th>
-        <th class="pl-1">Actions</th>
+        <th class="pl-1 fw-bold">STT</th>
+        <th class="pl-1 fw-bold">Name</th>
+        <th class="pl-1 fw-bold">Position</th>
+        <th class="pl-1 fw-bold">Division</th>
+        <th class="pl-1 fw-bold">Birthday</th>
+        <th class="pl-1 fw-bold">Id Card</th>
+        <th class="pl-1 fw-bold">Salary</th>
+        <th class="pl-1 fw-bold">Phone</th>
+        <th class="pl-1 fw-bold">Email</th>
+        <th class="pl-1 fw-bold">Address</th>
+        <th class="pl-1 fw-bold">Actions</th>
       </tr>
       </thead>
       <tbody class="bg-white">
@@ -65,11 +61,6 @@
     </div>
   </div>
 </div>
-    </div>
-  </div>
-</div>
-
-
 
 <!--Modal Create & Edit-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">

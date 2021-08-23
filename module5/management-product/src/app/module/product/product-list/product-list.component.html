@@ -1,1 +1,73 @@
-<p>product-list works!</p>
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Manage <b>Product</b></h2>
+        </div>
+        <div class="col-sm-6">
+          <a routerLink="/create" class="add btn btn-success"><i
+            class="material-icons" title="add">&#xE147;</i><span>Add New Product</span></a>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th class="pl-1 fw-bold">STT</th>
+        <th class="pl-1 fw-bold">Product Code</th>
+        <th class="pl-1 fw-bold">Product Name</th>
+        <th class="pl-1 fw-bold">Price</th>
+        <th class="pl-1 fw-bold">ImportDate</th>
+        <th class="pl-1 fw-bold">ExportDate</th>
+        <th class="pl-1 fw-bold">Quantity</th>
+        <th class="pl-1 fw-bold">Status</th>
+        <th class="pl-1 fw-bold">Producer</th>
+        <th class="pl-1 fw-bold">Category</th>
+        <th class="pl-1 fw-bold">Actions</th>
+      </tr>
+      </thead>
+      <tbody class="bg-white">
+      <tr *ngFor="let product of products|paginate: { itemsPerPage: 2, currentPage: p},  let i = index ">
+        <td class="pl-1 pr-0 align-middle">{{ i + 1 }}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.productCode}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.productName}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.priceProduct}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.importDateProduct}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.exportDateProduct}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.quantityProduct}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.status}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.producerProduct}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.category.categoryName}}</td>
+
+        <td class="pl-1 pr-0 align-middle">
+          <a [routerLink]="[product.id,'edit']" class="edit eBtn" data-toggle="modal" style="cursor: pointer">
+            <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+          </a>
+          <a (click)="getProduct(product)" class="delete" style="cursor: pointer" data-toggle="modal"  data-target="#exampleModal">
+            <i class="material-icons" data-toggle="tooltip" title="Delete" >&#xE872;</i>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-end">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white ">
+        <h5 class="modal-title  " id="exampleModalLabel">Xác NHận xóa !</h5>
+        <button type="button" class="btn-close " data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-product-delete [deleteId] ="idProduct" [deleteName] ="nameProduct" (deleteComplete) ="deleteSuccess()" ></app-product-delete>
+      </div>
+    </div>
+  </div>
+</div>
+
+

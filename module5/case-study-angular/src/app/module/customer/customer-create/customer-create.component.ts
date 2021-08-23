@@ -76,8 +76,8 @@ export class CustomerCreateComponent implements OnInit {
         console.log('Loi create:' + error);
       });
     }
-
   }
+
   validation_messages = {
     customerCode :[
       {'type': 'required', msg:'Not empty' },

@@ -1,1 +1,121 @@
-<p>product-create works!</p>
+<div class="body">
+  <div class="container w-50 mt-5">
+    <div class="main shadow-lg mb-5 bg-white rounded">
+      <div class="bg-primary text-white rounded-top" style="height: 70px;">
+        <h2 class="p-3">Create <b>Product</b></h2>
+      </div>
+      <div class="header-form p-3">
+        <form class="needs-validation" novalidate [formGroup]="createForm" (ngSubmit)="createProduct()">
+          <div class="row">
+            <div class="col-6 position-relative mt-2">
+              <div class="form-group">
+                <label for="validationTooltip01">Product Code <span style="color:red;">*</span>:</label>
+                <input type="text" id="validationTooltip01" class="form-control" placeholder="Enter code... "
+                       formControlName="productCode" autocomplete="off">
+                <div class='text-danger' *ngFor="let valid of validMsg.getMessage().productCode">
+                  <div class="error-message" *ngIf="checkVail('productCode', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative mt-2">
+              <div class="form-group">
+                <label>Category <span style="color:red;">*</span>: </label>
+                <select class="form-control select" id="validationTooltip02" formControlName="category">
+                  <option value="" disabled>--Select type category--</option>
+                  <option *ngFor="let type of category" [ngValue]="type">{{type.categoryName}}</option>
+                </select>
+                <div class='text-danger' *ngFor="let valid of validMsg.getMessage().category">
+                  <div class="error-message" *ngIf="checkVail('category', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative mt-2">
+              <div class="form-group">
+                <label for="validationTooltip03">Product Name <span style="color:red;">*</span>:</label>
+                <input type="text" id="validationTooltip03" class="form-control" placeholder="Enter name... "
+                       autocomplete="off" formControlName="productName">
+                <div class='text-danger' *ngFor="let valid of validMsg.getMessage().productName">
+                  <div class="error-message" *ngIf="checkVail('productName', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative mt-2">
+              <div class="form-group "  >
+                <label for="validationTooltip04">Import Date <span style="color:red;">*</span>:</label>
+                <input type="date" id="validationTooltip04" class="form-control" autocomplete="off" placeholder="dd-mm-yyyy"
+                       formControlName="importDateProduct">
+                <div class='text-danger' *ngFor="let valid of validMsg.getMessage().importDateProduct">
+                  <div class="error-message" *ngIf="checkVail('importDateProduct', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative mt-2">
+              <div class="form-group">
+                <label for="validationTooltip05">Quantity <span style="color:red;">*</span>:</label>
+                <input type="text" id="validationTooltip05" class="form-control" placeholder="Enter quantity... "
+                       autocomplete="off" formControlName="quantityProduct">
+                <div class='text-danger' *ngFor="let valid of validMsg.getMessage().quantityProduct">
+                  <div class="error-message" *ngIf="checkVail('quantityProduct', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative mt-2">
+              <div class="form-group">
+                <label for="validationTooltip06">Export Date <span style="color:red;">*</span>:</label>
+                <input type="date" id="validationTooltip06" class="form-control" placeholder="dd-mm-yyyy"
+                       autocomplete="off" formControlName="exportDateProduct">
+                <div class='text-danger' *ngFor="let valid of validMsg.getMessage().exportDateProduct">
+                  <div class="error-message" *ngIf="checkVail('exportDateProduct', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+<!--                <span *ngIf="createForm.get('exportDateProduct').hasError('validDate')">Ngay xuat lon hon ngay nhap</span>-->
+
+              </div>
+            </div>
+            <div class="col-6 position-relative mt-2">
+              <div class="form-group">
+                <label for="validationTooltip07">Producer <span style="color:red;">*</span>:</label>
+                <input type="text" id="validationTooltip07" class="form-control" placeholder="Enter producer... "
+                       autocomplete="off" formControlName="producerProduct">
+                <div class='text-danger' *ngFor="let valid of validMsg.getMessage().producerProduct">
+                  <div class="error-message" *ngIf="checkVail('producerProduct', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 position-relative mt-2">
+              <div class="form-group">
+                <label for="validationTooltip08">Price <span style="color:red;">*</span>:</label>
+                <input type="text" id="validationTooltip08" class="form-control" placeholder="Enter price... "
+                       autocomplete="off" formControlName="priceProduct">
+                <div class='text-danger' *ngFor="let valid of validMsg.getMessage().priceProduct">
+                  <div class="error-message" *ngIf="checkVail('priceProduct', valid.type)">
+                    {{valid.msg}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer mt-3">
+              <button [routerLink]="['/list']" class="btn btn-secondary mx-2 float-end">Back</button>
+              <button class="btn btn-primary mx-2 float-end" [disabled]="createForm.invalid">Create</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+

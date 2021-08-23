@@ -7,8 +7,6 @@ import {Employee} from "../../../model/employee/employee";
 import {Division} from "../../../model/employee/division";
 import {Positions} from "../../../model/employee/positions";
 import {EducationDegree} from "../../../model/employee/education-degree";
-import {MatDialog} from "@angular/material/dialog";
-import {EmployeeCreateComponent} from "../employee-create/employee-create.component";
 
 @Component({
   selector: 'app-employee-list',
@@ -35,7 +33,7 @@ export class EmployeeListComponent implements OnInit {
               private loadService: LoadCssService,
               private formBuilder: FormBuilder,
               private toastr: ToastrService,
-              public dialog: MatDialog) {
+              ) {
     loadService.loadCss('assets/css/mdb.min.css');
     // loadService.loadCss('assets/css/bootstrap.min.css');
     // loadService.loadScript('assets/js/jquery-3.6.0.js');
@@ -47,9 +45,6 @@ export class EmployeeListComponent implements OnInit {
     this.initData();
     this.initForm();
     this.getListEmployee();
-  }
-  openDialog(){
-    this.dialog.open(EmployeeCreateComponent);
   }
 
   initData() {

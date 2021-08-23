@@ -1,0 +1,93 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "categoryName": "Computer"
+    },
+    {
+      "id": 2,
+      "categoryName": "SmartPhone"
+    },
+    {
+      "id": 3,
+      "categoryName": "Tablet"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "productCode": "SP-0092",
+      "productName": "Galaxy",
+      "priceProduct": "6000",
+      "producerProduct": "USA",
+      "importDateProduct": "12-06-2021",
+      "exportDateProduct": "12-06-2021",
+      "status": "con hang",
+      "quantityProduct": "6",
+      "category": {
+        "id": 2,
+        "categoryName": "SmartPhone"
+      }
+    },
+    {
+      "quantityProduct": "6",
+      "productCode": "SP-0933",
+      "productName": "Galaxy",
+      "priceProduct": "599",
+      "producerProduct": "Korean",
+      "importDateProduct": "12-03-2021",
+      "exportDateProduct": "12-09-2021",
+      "category": {
+        "id": 3,
+        "categoryName": "Tablet"
+      },
+      "status": "con hang",
+      "id": 3
+    },
+    {
+      "quantityProduct": "12",
+      "productCode": "SP-9987",
+      "productName": "Nokia",
+      "priceProduct": "4536",
+      "producerProduct": "China",
+      "importDateProduct": "18-08-2021",
+      "exportDateProduct": "19-08-2021",
+      "category": {
+        "id": 2,
+        "categoryName": "SmartPhone"
+      },
+      "status": "con hang",
+      "id": 4
+    },
+    {
+      "quantityProduct": "12",
+      "productCode": "SP-0989",
+      "productName": "fd",
+      "priceProduct": "45600",
+      "producerProduct": "China",
+      "importDateProduct": "22-08-2021",
+      "exportDateProduct": "22-08-2021",
+      "category": {
+        "id": 3,
+        "categoryName": "Tablet"
+      },
+      "status": "con hang",
+      "id": 5
+    },
+    {
+      "quantityProduct": "12",
+      "productCode": "SP-0998",
+      "productName": "eer",
+      "priceProduct": "456",
+      "producerProduct": "45",
+      "importDateProduct": "22-04-2021",
+      "exportDateProduct": "22-04-2021",
+      "category": {
+        "id": 1,
+        "categoryName": "Computer"
+      },
+      "status": "con hang",
+      "id": 6
+    }
+  ]
+}
