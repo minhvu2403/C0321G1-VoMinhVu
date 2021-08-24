@@ -88,6 +88,34 @@
       },
       "status": "con hang",
       "id": 6
+    },
+    {
+      "quantityProduct": "12",
+      "productCode": "SP-0944",
+      "productName": "dd",
+      "priceProduct": "5874",
+      "producerProduct": "67",
+      "importDateProduct": "2021-08-19",
+      "exportDateProduct": "2021-08-19",
+      "category": {
+        "id": 2,
+        "categoryName": "SmartPhone"
+      },
+      "status": "con hang",
+      "id": 7
+    },
+    {
+      "quantityProduct": "12",
+      "productCode": "SP-0984",
+      "productName": "33",
+      "priceProduct": "4444",
+      "producerProduct": "44",
+      "category": {
+        "id": 1,
+        "categoryName": "Computer"
+      },
+      "status": "con hang",
+      "id": 8
     }
   ]
 }

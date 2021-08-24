@@ -46,12 +46,12 @@
               </div>
             </div>
             <div class="col-6 position-relative mt-2">
-              <div class="form-group "  >
+              <div class="form-group " formGroupName="pwGroup">
                 <label for="validationTooltip04">Import Date <span style="color:red;">*</span>:</label>
                 <input type="date" id="validationTooltip04" class="form-control" autocomplete="off" placeholder="dd-mm-yyyy"
                        formControlName="importDateProduct">
                 <div class='text-danger' *ngFor="let valid of validMsg.getMessage().importDateProduct">
-                  <div class="error-message" *ngIf="checkVail('importDateProduct', valid.type)">
+                  <div class="error-message" *ngIf="checkValid('pwGroup',valid.type)">
                     {{valid.msg}}
                   </div>
                 </div>
@@ -70,17 +70,25 @@
               </div>
             </div>
             <div class="col-6 position-relative mt-2">
-              <div class="form-group">
+              <div class="form-group" formGroupName="pwGroup" >
                 <label for="validationTooltip06">Export Date <span style="color:red;">*</span>:</label>
                 <input type="date" id="validationTooltip06" class="form-control" placeholder="dd-mm-yyyy"
                        autocomplete="off" formControlName="exportDateProduct">
                 <div class='text-danger' *ngFor="let valid of validMsg.getMessage().exportDateProduct">
-                  <div class="error-message" *ngIf="checkVail('exportDateProduct', valid.type)">
+                  <div class="error-message" *ngIf="checkValid('pwGroup',valid.type)">
                     {{valid.msg}}
                   </div>
                 </div>
-<!--                <span *ngIf="createForm.get('exportDateProduct').hasError('validDate')">Ngay xuat lon hon ngay nhap</span>-->
 
+<!--                <div *ngIf="createForm.controls.exportDateProduct.hasError('required')">-->
+<!--                  <small>End date is required.</small>-->
+<!--                </div>-->
+<!--                <div *ngIf="createForm.controls.exportDateProduct.hasError('pattern')">-->
+<!--                  <small>End date must format dd/MM/yyyy.</small>-->
+<!--                </div>-->
+<!--                <div *ngIf="(['pwGroup']) && createForm.get('pwGroup').hasError('validDate')">-->
+<!--                  <small style="color: red">End date must great start date</small>-->
+<!--                </div>-->
               </div>
             </div>
             <div class="col-6 position-relative mt-2">
