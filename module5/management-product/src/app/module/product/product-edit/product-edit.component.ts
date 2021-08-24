@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Category} from "../../../model/category";
 import {ProductService} from "../../../service/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -46,19 +46,28 @@ export class ProductEditComponent implements OnInit {
       this.category = data;
     })
   }
-
+  checkValid(attribute:string ,error:string){
+    return(([attribute]) && this.editForm.get(attribute).hasError(error));
+  }
   updateForm() {
-    this.editForm = this.formBuilder.group({
-      productCode: this.formBuilder.control('', [Validators.required, Validators.pattern('^SP-[0-9]{4}$')]),
-      productName: this.formBuilder.control('', [Validators.required,]),
-      priceProduct: this.formBuilder.control('', [Validators.required,]),
-      importDateProduct: this.formBuilder.control('', [Validators.required,
-        Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-(\\d{4})$')]),
-      exportDateProduct: this.formBuilder.control('', [Validators.required,
-        Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-(\\d{4})$')]),
-      quantityProduct: this.formBuilder.control('', [Validators.required, Validators.pattern('[0-9]+'), Validators.min(0)]),
-      producerProduct: this.formBuilder.control('', [Validators.required,]),
-      category: this.formBuilder.control('', [Validators.required,]),
+    this.editForm =new FormGroup({
+      productCode: new FormControl('', [Validators.required, Validators.pattern('^SP-[0-9]{4}$')]),
+      productName:new FormControl('', [Validators.required,]),
+      priceProduct: new FormControl('', [Validators.required,]),
+      dateGroup:new FormGroup({
+        importDateProduct: new FormControl('', [Validators.required,
+          // Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-(\\d{4})$')
+          Validators.pattern('^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$')
+        ]),
+        exportDateProduct: new FormControl('', [Validators.required,
+          // Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-(\\d{4})$'),
+          Validators.pattern('^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$'),
+
+        ]),
+      },this.validDate),
+      quantityProduct: new FormControl('', [Validators.required, Validators.pattern('[0-9]+'), Validators.min(0)]),
+      producerProduct: new FormControl('', [Validators.required,]),
+      category: new FormControl('', [Validators.required,]),
     });
     this.activatedRoute.paramMap.subscribe(data => {
       this.id = Number(data.get('id'));
@@ -67,12 +76,13 @@ export class ProductEditComponent implements OnInit {
     this.productService.findById(this.id).subscribe(data => {
       this.productObj = data;
       this.editForm.patchValue(data);
+      console.log(data);
     })
   }
 
   getProduct(id: number) {
     this.productService.findById(id).subscribe(data => {
-      this.editForm.setValue({
+      this.editForm.patchValue({
         productCode: this.productObj.productCode,
         productName: this.productObj.productName,
         producerProduct: this.productObj.producerProduct,
@@ -83,7 +93,7 @@ export class ProductEditComponent implements OnInit {
         category: this.productObj.category,
       })
       this.selectedValueCategory = this.productObj.category;
-      console.log('day la getProduct' + JSON.stringify(this.selectedValueCategory));
+      console.log('day la getProduct' + JSON.stringify(this.editForm.value));
     });
   }
 
@@ -97,14 +107,9 @@ export class ProductEditComponent implements OnInit {
 
   update() {
     if (this.editForm.valid) {
-      this.productObj.quantityProduct = this.editForm.value.quantityProduct;
-      this.productObj.productCode = this.editForm.value.productCode;
-      this.productObj.productName = this.editForm.value.productName;
-      this.productObj.priceProduct = this.editForm.value.priceProduct;
-      this.productObj.producerProduct = this.editForm.value.producerProduct;
-      this.productObj.importDateProduct = this.editForm.value.importDateProduct;
-      this.productObj.exportDateProduct = this.editForm.value.exportDateProduct;
-      this.productObj.category = this.editForm.value.category;
+      this.productObj =Object.assign({},this.editForm.value);
+      this.productObj.importDateProduct = this.editForm.value.dateGroup.importDateProduct;
+      this.productObj.exportDateProduct = this.editForm.value.dateGroup.exportDateProduct;
       if (this.productObj.quantityProduct > 0) {
         this.productObj.status = 'con hang';
       } else {
@@ -118,5 +123,16 @@ export class ProductEditComponent implements OnInit {
       this.toastr.success('Update successfully', 'Product!');
 
     }
+  }
+  validDate(control: AbstractControl): any {
+    let dayValue = control.value;
+    let start = new Date(dayValue.importDateProduct);
+    let end = new Date(dayValue.exportDateProduct);
+    console.log('start:'+JSON.stringify(start))
+    console.log('end' +JSON.stringify(end))
+    if (end.getTime() - start.getTime() <= 0) {
+      return {validDate: true};
+    }
+    return null;
   }
 }

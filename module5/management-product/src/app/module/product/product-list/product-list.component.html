@@ -28,13 +28,13 @@
       </tr>
       </thead>
       <tbody class="bg-white">
-      <tr *ngFor="let product of products|paginate: { itemsPerPage: 2, currentPage: p},  let i = index ">
+      <tr *ngFor="let product of products|paginate: { itemsPerPage: 5, currentPage: p},  let i = index ">
         <td class="pl-1 pr-0 align-middle">{{ i + 1 }}</td>
         <td class="pl-1 pr-0 align-middle">{{ product.productCode}}</td>
         <td class="pl-1 pr-0 align-middle">{{ product.productName}}</td>
         <td class="pl-1 pr-0 align-middle">{{ product.priceProduct}}</td>
-        <td class="pl-1 pr-0 align-middle">{{ product.importDateProduct}}</td>
-        <td class="pl-1 pr-0 align-middle">{{ product.exportDateProduct}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.importDateProduct | date:'dd-MM-yyyy'}}</td>
+        <td class="pl-1 pr-0 align-middle">{{ product.exportDateProduct | date:'dd-MM-yyyy'}}</td>
         <td class="pl-1 pr-0 align-middle">{{ product.quantityProduct}}</td>
         <td class="pl-1 pr-0 align-middle">{{ product.status}}</td>
         <td class="pl-1 pr-0 align-middle">{{ product.producerProduct}}</td>

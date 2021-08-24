@@ -1,0 +1,83 @@
+
+<div class="body">
+  <div class="container login ">
+    <img id="profile-img" class="profile-img-card" src="/assets/img/panda-avatar.png"/>
+    <form class="needs-validation" novalidate #loginForm ='ngForm' (ngSubmit)="submit(loginForm)">
+      <!-- Email input -->
+      <div class="mb-4 position-relative">
+        <div class="form-outline ">
+          <input type="email" id="validationTooltip02"  class="form-control" ngModel name="email" required email autocomplete="off"/>
+          <label class="form-label" for="validationTooltip02">Email address</label>
+          <div class="error-message " *ngIf="loginForm.controls.email?.invalid && (loginForm.controls.email?.dirty || loginForm.controls.email?.touched)">
+            <small *ngIf="loginForm.controls.email.errors.required; else elseMessage">Email is required.</small>
+            <ng-template #elseMessage>
+              <small>Email is not in correct format. (i.e: example@abc.com)</small>
+
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <!-- Password input -->
+      <div class="mb-4 position-relative">
+        <div class="form-outline">
+          <input type="password" id="validationTooltip03" class="form-control" ngModel name="password" required minlength="6"/>
+          <label class="form-label" for="validationTooltip03">Password</label>
+          <div class="error-message "
+               *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.dirty || loginForm.controls.password?.touched)">
+            <small *ngIf="loginForm.controls.password.errors.required; else elseMessage">Password is required.</small>
+            <ng-template #elseMessage>
+              <small>Password must be at least 6 characters length.</small>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <!-- 2 column grid layout for inline styling -->
+
+      <div class="row mb-4">
+        <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="validationTooltip04"
+                checked
+              />
+              <label class="form-check-label" for="validationTooltip04"> Remember me </label>
+
+            </div>
+        </div>
+
+        <div class="col">
+          <!-- Simple link -->
+          <a href="#!">Forgot password?</a>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="loginForm.invalid" >Sign in</button>
+
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p>Not a member? <a href="#!">Register</a></p>
+        <p>or sign up with:</p>
+        <button type="button" class="btn btn-primary btn-floating mx-1">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+
+        <button type="button" class="btn btn-primary btn-floating mx-1">
+          <i class="fab fa-google"></i>
+        </button>
+
+        <button type="button" class="btn btn-primary btn-floating mx-1">
+          <i class="fab fa-twitter"></i>
+        </button>
+
+        <button type="button" class="btn btn-primary btn-floating mx-1">
+          <i class="fab fa-github"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

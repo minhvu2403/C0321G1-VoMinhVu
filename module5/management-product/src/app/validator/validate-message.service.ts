@@ -40,7 +40,9 @@ export class ValidateMessageService {
         {'type': 'pattern', msg: 'Date must format date dd-MM-yyy'},
         {'type': 'validDate', msg: 'End date must great start date'},
       ],
-
+      dateGroup:[
+        {'type': 'required', msg: 'Not empty'},
+      ]
     }
   }
 }

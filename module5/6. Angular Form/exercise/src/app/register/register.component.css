@@ -1,0 +1,96 @@
+/*.card-container.card {*/
+/*  max-width: 350px;*/
+/*  padding: 40px 40px;*/
+/*}*/
+
+/*.card {*/
+/*  background-color: #F7F7F7;*/
+/*  !* just in case there no content*!*/
+/*  padding: 20px 25px 30px;*/
+/*  margin: 0 auto 30px;*/
+/*  margin-top: 40px;*/
+/*  !* shadows and rounded borders *!*/
+/*  -moz-border-radius: 2px;*/
+/*  -webkit-border-radius: 2px;*/
+/*  border-radius: 2px;*/
+/*  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+/*  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+/*  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+/*}*/
+
+/*.profile-img-card {*/
+/*  width: 96px;*/
+/*  height: 96px;*/
+/*  margin: 0 auto 10px;*/
+/*  display: block;*/
+/*  -moz-border-radius: 50%;*/
+/*  -webkit-border-radius: 50%;*/
+/*  border-radius: 50%;*/
+/*}*/
+
+/*!**/
+/* * Form styles*/
+/* *!*/
+/*.profile-name-card {*/
+/*  font-size: 16px;*/
+/*  font-weight: bold;*/
+/*  text-align: center;*/
+/*  margin: 10px 0 0;*/
+/*  min-height: 1em;*/
+/*}*/
+
+/*.form-register button {*/
+/*  width: 50%;*/
+/*  display: block;*/
+/*  margin-bottom: 10px;*/
+/*  margin-left: auto;*/
+/*  margin-right: auto;*/
+/*}*/
+
+/*.form-register input, select {*/
+/*  margin-top: 15px;*/
+/*}*/
+
+/*.form-register input .custom-radio {*/
+/*  margin-right: 10px;*/
+/*}*/
+
+/*.form-register .form-control:focus {*/
+/*  border-color: rgb(104, 145, 162);*/
+/*  outline: 0;*/
+/*  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);*/
+/*  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);*/
+/*}*/
+
+/*.btn.btn-register {*/
+/*  background-color: rgb(104, 145, 162);*/
+/*  margin-top: 30px;*/
+/*  padding: 0px;*/
+/*  font-weight: 700;*/
+/*  font-size: 14px;*/
+/*  height: 36px;*/
+/*  -moz-border-radius: 3px;*/
+/*  -webkit-border-radius: 3px;*/
+/*  border-radius: 3px;*/
+/*  border: none;*/
+/*  -o-transition: all 0.218s;*/
+/*  -moz-transition: all 0.218s;*/
+/*  -webkit-transition: all 0.218s;*/
+/*  transition: all 0.218s;*/
+/*}*/
+
+/*.btn.btn-register:hover,*/
+/*.btn.btn-register:active,*/
+/*.btn.btn-register:focus {*/
+/*  background-color: #046056;*/
+/*}*/
+
+/*.error-message {*/
+/*  color: red;*/
+/*  font-size: small;*/
+/*  padding-left: 10px;*/
+/*}*/
+
+/*label {*/
+/*  margin-right: 20px;*/
+/*}*/

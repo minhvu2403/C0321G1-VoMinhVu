@@ -15,107 +15,61 @@
   ],
   "products": [
     {
-      "id": 1,
-      "productCode": "SP-0092",
-      "productName": "Galaxy",
-      "priceProduct": "6000",
-      "producerProduct": "USA",
-      "importDateProduct": "12-06-2021",
-      "exportDateProduct": "12-06-2021",
-      "status": "con hang",
-      "quantityProduct": "6",
-      "category": {
-        "id": 2,
-        "categoryName": "SmartPhone"
-      }
-    },
-    {
-      "quantityProduct": "6",
-      "productCode": "SP-0933",
-      "productName": "Galaxy",
-      "priceProduct": "599",
-      "producerProduct": "Korean",
-      "importDateProduct": "12-03-2021",
-      "exportDateProduct": "12-09-2021",
+      "productCode": "SP-9847",
+      "productName": "kgm",
+      "priceProduct": "1232",
+      "dateGroup": {
+        "importDateProduct": "2021-08-24",
+        "exportDateProduct": "2021-08-27"
+      },
+      "quantityProduct": "21",
+      "producerProduct": "sd",
       "category": {
         "id": 3,
         "categoryName": "Tablet"
       },
+      "importDateProduct": "2021-08-24",
+      "exportDateProduct": "2021-08-27",
       "status": "con hang",
       "id": 3
     },
     {
+      "productCode": "SP-0943",
+      "productName": "Galaxy",
+      "priceProduct": "fff",
+      "dateGroup": {
+        "importDateProduct": "2021-08-24",
+        "exportDateProduct": "2021-09-02"
+      },
       "quantityProduct": "12",
-      "productCode": "SP-9987",
-      "productName": "Nokia",
-      "priceProduct": "4536",
-      "producerProduct": "China",
-      "importDateProduct": "18-08-2021",
-      "exportDateProduct": "19-08-2021",
+      "producerProduct": "dfr",
       "category": {
         "id": 2,
         "categoryName": "SmartPhone"
       },
+      "importDateProduct": "2021-08-24",
+      "exportDateProduct": "2021-09-02",
       "status": "con hang",
       "id": 4
     },
     {
-      "quantityProduct": "12",
-      "productCode": "SP-0989",
-      "productName": "fd",
-      "priceProduct": "45600",
-      "producerProduct": "China",
-      "importDateProduct": "22-08-2021",
-      "exportDateProduct": "22-08-2021",
-      "category": {
-        "id": 3,
-        "categoryName": "Tablet"
+      "productCode": "SP-9587",
+      "productName": "Hawari",
+      "priceProduct": "344",
+      "dateGroup": {
+        "importDateProduct": "2021-08-24",
+        "exportDateProduct": "2021-08-27"
       },
-      "status": "con hang",
+      "quantityProduct": "0",
+      "producerProduct": "sd",
+      "category": {
+        "id": 1,
+        "categoryName": "Computer"
+      },
+      "importDateProduct": "2021-08-24",
+      "exportDateProduct": "2021-08-27",
+      "status": "het hang",
       "id": 5
-    },
-    {
-      "quantityProduct": "12",
-      "productCode": "SP-0998",
-      "productName": "eer",
-      "priceProduct": "456",
-      "producerProduct": "45",
-      "importDateProduct": "22-04-2021",
-      "exportDateProduct": "22-04-2021",
-      "category": {
-        "id": 1,
-        "categoryName": "Computer"
-      },
-      "status": "con hang",
-      "id": 6
-    },
-    {
-      "quantityProduct": "12",
-      "productCode": "SP-0944",
-      "productName": "dd",
-      "priceProduct": "5874",
-      "producerProduct": "67",
-      "importDateProduct": "2021-08-19",
-      "exportDateProduct": "2021-08-19",
-      "category": {
-        "id": 2,
-        "categoryName": "SmartPhone"
-      },
-      "status": "con hang",
-      "id": 7
-    },
-    {
-      "quantityProduct": "12",
-      "productCode": "SP-0984",
-      "productName": "33",
-      "priceProduct": "4444",
-      "producerProduct": "44",
-      "category": {
-        "id": 1,
-        "categoryName": "Computer"
-      },
-      "status": "con hang",
-      "id": 8
     }
   ]
 }

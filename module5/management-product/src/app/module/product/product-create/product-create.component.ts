@@ -50,7 +50,10 @@ export class ProductCreateComponent implements OnInit {
     return (this.createForm.get(attribute).hasError(error) && (this.createForm.get(attribute).touched || this.createForm.get(attribute).dirty));
   }
   checkValid(attribute:string ,error:string){
-    return(([attribute]) && this.createForm.get(attribute).hasError(error) &&(([attribute]) && this.createForm.get(attribute).touched||([attribute]) && this.createForm.get(attribute).dirty));
+    return(([attribute]) && this.createForm.get(attribute).hasError(error)
+      &&(([attribute]) && this.createForm.get(attribute).touched
+        ||([attribute]) && this.createForm.get(attribute).dirty));
+
   }
 
   // initForm() {
@@ -78,7 +81,7 @@ initForm(){
       productCode: new FormControl('', [Validators.required, Validators.pattern('^SP-[0-9]{4}$')]),
       productName:new FormControl('', [Validators.required,]),
       priceProduct: new FormControl('', [Validators.required,]),
-      pwGroup:new FormGroup({
+      dateGroup:new FormGroup({
         importDateProduct: new FormControl('', [Validators.required,
           // Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-(\\d{4})$')
           Validators.pattern('^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$')
@@ -89,15 +92,6 @@ initForm(){
 
         ]),
       },this.validDate),
-      importDateProduct: new FormControl('', [Validators.required,
-        // Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-(\\d{4})$')
-        Validators.pattern('^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$')
-      ]),
-      exportDateProduct: new FormControl('', [Validators.required,
-        // Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-(\\d{4})$'),
-        Validators.pattern('^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$'),
-
-      ]),
       quantityProduct: new FormControl('', [Validators.required, Validators.pattern('[0-9]+'), Validators.min(0)]),
       producerProduct: new FormControl('', [Validators.required,]),
       category: new FormControl('', [Validators.required,]),
@@ -106,18 +100,14 @@ initForm(){
 
   createProduct() {
     if (this.createForm.valid) {
-      console.log(this.createForm.value);
-      this.productObj.quantityProduct = this.createForm.value.quantityProduct;
-      this.productObj.productCode = this.createForm.value.productCode;
-      this.productObj.productName = this.createForm.value.productName;
-      this.productObj.priceProduct = this.createForm.value.priceProduct;
-      this.productObj.producerProduct = this.createForm.value.producerProduct;
-      this.productObj.importDateProduct = this.createForm.value.importDateProduct;
-      this.productObj.exportDateProduct = this.createForm.value.exportDateProduct;
-      // this.productObj.importDateProduct = .value.importDateProduct;
-      // this.productObj.exportDateProduct = this.createForm.value.exportDateProduct;
-      this.productObj.category = this.createForm.value.category;
-
+       console.log(this.createForm.value);
+       console.log('fjdh');
+      console.log(this.createForm.value.pwGroup);
+      this.productObj = Object.assign({}, this.createForm.value);
+      this.productObj.importDateProduct = this.createForm.value.dateGroup.importDateProduct;
+      this.productObj.exportDateProduct = this.createForm.value.dateGroup.exportDateProduct;
+      console.log('fkfkk')
+        console.log(this.productObj);
       if (this.productObj.quantityProduct > 0) {
         this.productObj.status = 'con hang';
       } else {
@@ -125,7 +115,7 @@ initForm(){
       }
       console.log(JSON.stringify(this.productObj));
       this.productService.saveProduct(this.productObj).subscribe(data => {
-        this.router.navigateByUrl('/list');
+         this.router.navigateByUrl('/list');
       }, error => {
         console.log('Loi create:' + error);
       });

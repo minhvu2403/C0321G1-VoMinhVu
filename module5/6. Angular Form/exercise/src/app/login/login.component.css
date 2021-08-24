@@ -1,0 +1,97 @@
+
+.body{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: sans-serif;
+  justify-content: center;
+  background: url(https://devforum.info/DEMO/LoginForm1/bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.login{
+  background-color: white;
+  width: 400px;
+  height: auto;
+  padding: 90px 40px 40px;
+  margin-top: 60px;
+  border-radius: 10px;
+  box-shadow: 8px 5px 15px -1px rgba(176,173,182,0.75);
+  -webkit-box-shadow: 8px 5px 15px -1px rgba(176,173,182,0.75);
+  -moz-box-shadow: 8px 5px 15px -1px rgba(176,173,182,0.75);
+  position: relative;
+}
+.profile-img-card{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  margin-top: -183px;
+  margin-left: -68px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #1269ea;
+
+}
+.error-message{
+  top: 100%;
+  z-index: 5;
+  max-width: 100%;
+  padding: .25rem .5rem;
+  margin-top: .1rem;
+  background-color: rgba(249,49,84,.9);
+  border-radius: .25rem!important;
+  color: #fff;
+}
+.error-message{
+  position: absolute;
+  font-size: .875rem;
+}
+/*input.form-control{*/
+/*  margin-bottom: 1rem;*/
+/*  background-image: none;*/
+/*  border-color: #f93154;*/
+/*}*/
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #f93154; /* red */
+}
+
+input.ng-invalid.ng-touched{
+  border-color:  #f93154 ;
+}
+input.ng-valid{
+  border-color:  #00b74a;
+  border-radius: 5px;
+}
+input.ng-invalid.ng-touched~.form-label {
+  color:#f93154 ;
+
+}
+input.ng-valid~.form-label{
+  color:  #00b74a;
+
+}
+input.ng-invalid.ng-touched{
+  padding-right: calc(1.6em + .75rem);
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23f93154'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3E%3Ccircle cx='6' cy='8.2' r='.6' fill='%23f93154' stroke='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right calc(.4em + .1875rem) center;
+  background-size: calc(.8em + .375rem) calc(.8em + .375rem);
+}
+input.ng-valid{
+  padding-right: calc(1.6em + .75rem);
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%2300b74a' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right calc(.4em + .1875rem) center;
+  background-size: calc(.8em + .375rem) calc(.8em + .375rem);
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-leading{
+  border-top: .125rem solid #f93154;
+  border-bottom: .125rem solid #f93154;
+  border-left: .125rem solid #f93154;
+}

@@ -1,0 +1,78 @@
+
+<div class="container">
+  <div class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="/assets/avatar_2x.png"/>
+    <form class="form-register" [formGroup]="registerForm" (ngSubmit)="submit()">
+      <input type="text" id="email" placeholder="Email" class="form-control" formControlName="email" required>
+      <div class="error-message"
+           *ngIf="registerForm.get('email').invalid && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+        <p *ngIf="registerForm.get('email').errors.required; else elseMessage">Email is required.</p>
+        <ng-template #elseMessage>
+          <p>Email is not in correct format. (i.e: example@abc.com)</p>
+        </ng-template>
+      </div>
+      <div formGroupName="pwGroup">
+        <input type="password" placeholder="Password" class="form-control" formControlName="password">
+        <div class="error-message"
+             *ngIf="registerForm.get('pwGroup').get('password').invalid &&
+             (registerForm.get('pwGroup').get('password').dirty || registerForm.get('pwGroup').get('password').touched)">
+          <p *ngIf="registerForm.get('pwGroup').get('password').errors.required; else elseMessage">Password is
+            required.</p>
+          <ng-template #elseMessage>
+            <p>Password must be at least 6 characters length.</p>
+          </ng-template>
+        </div>
+
+        <input type="password" placeholder="Confirm Password" class="form-control"
+               formControlName="confirmPassword">
+        <div class="error-message"
+             *ngIf="registerForm.get('pwGroup').invalid &&
+              (registerForm.get('pwGroup').get('confirmPassword').dirty || registerForm.get('pwGroup').get('confirmPassword').touched)">
+          <p>Password does not match!</p>
+        </div>
+      </div>
+
+      <select class="form-control" formControlName="country">
+        <option selected disabled value="">Select a country</option>
+        <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+      </select>
+      <div class="error-message"
+           *ngIf="registerForm.controls.country.invalid && registerForm.controls.country.touched">
+        <p *ngIf="registerForm.controls.country.errors.required">Country is required.</p>
+      </div>
+
+      <input type="number" id="age" placeholder="Age" class="form-control"
+             formControlName="age">
+      <div class="error-message"
+           *ngIf="registerForm.controls.age.invalid && (registerForm.controls.age.dirty || registerForm.controls.age.touched)">
+        <p *ngIf="registerForm.controls.age.errors.required; else elseMessage">Age is required.</p>
+        <ng-template #elseMessage>
+          <p>Age must be greater than 18.</p>
+        </ng-template>
+      </div>
+
+      <label><input type="radio" name="gender" class="custom-radio" formControlName="gender" value="0"> Female</label>
+      <label><input type="radio" name="gender" class="custom-radio" formControlName="gender" value="1"> Male</label>
+      <label><input type="radio" name="gender" class="custom-radio" formControlName="gender" value="2"> Other</label>
+
+      <input type="text" id="phone" placeholder="Phone" class="form-control"
+             formControlName="phone">
+      <div class="error-message"
+           *ngIf="registerForm.controls.phone.invalid && (registerForm.controls.phone.dirty || !registerForm.controls.phone.untouched)">
+        <p *ngIf="registerForm.controls.phone.errors.required; else elseMessage">Phone number is required.</p>
+        <ng-template #elseMessage>
+          <p>Phone number is not in correct format. (i.e: +84905112233)</p>
+        </ng-template>
+      </div>
+
+      <button type="submit" class="btn btn-lg btn-primary btn-block btn-register"
+              [disabled]="registerForm.invalid">Register
+      </button>
+    </form>
+  </div>
+</div>
+
+
+
+
+

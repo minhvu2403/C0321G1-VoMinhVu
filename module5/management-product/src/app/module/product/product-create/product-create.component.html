@@ -46,12 +46,14 @@
               </div>
             </div>
             <div class="col-6 position-relative mt-2">
-              <div class="form-group " formGroupName="pwGroup">
+              <div class="form-group " formGroupName="dateGroup">
                 <label for="validationTooltip04">Import Date <span style="color:red;">*</span>:</label>
                 <input type="date" id="validationTooltip04" class="form-control" autocomplete="off" placeholder="dd-mm-yyyy"
                        formControlName="importDateProduct">
-                <div class='text-danger' *ngFor="let valid of validMsg.getMessage().importDateProduct">
-                  <div class="error-message" *ngIf="checkValid('pwGroup',valid.type)">
+                <div class='text-danger' *ngFor="let valid of validMsg.getMessage().dateGroup">
+                  <div class="error-message"
+                       *ngIf="createForm.get('dateGroup').get('importDateProduct').invalid &&
+                                         (createForm.get('dateGroup').get('importDateProduct').dirty ||createForm.get('dateGroup').get('importDateProduct').touched)">
                     {{valid.msg}}
                   </div>
                 </div>
@@ -70,12 +72,12 @@
               </div>
             </div>
             <div class="col-6 position-relative mt-2">
-              <div class="form-group" formGroupName="pwGroup" >
+              <div class="form-group" formGroupName="dateGroup" >
                 <label for="validationTooltip06">Export Date <span style="color:red;">*</span>:</label>
                 <input type="date" id="validationTooltip06" class="form-control" placeholder="dd-mm-yyyy"
                        autocomplete="off" formControlName="exportDateProduct">
                 <div class='text-danger' *ngFor="let valid of validMsg.getMessage().exportDateProduct">
-                  <div class="error-message" *ngIf="checkValid('pwGroup',valid.type)">
+                  <div class="error-message" *ngIf="checkValid('dateGroup',valid.type)">
                     {{valid.msg}}
                   </div>
                 </div>
