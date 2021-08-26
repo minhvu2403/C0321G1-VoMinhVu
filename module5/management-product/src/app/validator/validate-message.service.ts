@@ -33,16 +33,14 @@ export class ValidateMessageService {
       ],
       importDateProduct: [
         {'type': 'required', msg: 'Not empty'},
-        {'type': 'pattern', msg: 'Date must format date dd-MM-yyyy'},
+       // {'type': 'pattern', msg: 'Date must format date dd/MM/yyyy'},
       ],
       exportDateProduct: [
         {'type': 'required', msg: 'Not empty'},
-        {'type': 'pattern', msg: 'Date must format date dd-MM-yyy'},
-        {'type': 'validDate', msg: 'End date must great start date'},
+        //{'type': 'pattern', msg: 'Date must format date dd/MM/yyy'},
+       {'type': 'validDate', msg: 'End date must great start date'},
       ],
-      dateGroup:[
-        {'type': 'required', msg: 'Not empty'},
-      ]
+
     }
   }
 }

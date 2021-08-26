@@ -39,7 +39,7 @@
       "priceProduct": "fff",
       "dateGroup": {
         "importDateProduct": "2021-08-24",
-        "exportDateProduct": "2021-09-02"
+        "exportDateProduct": "2021-10-26"
       },
       "quantityProduct": "12",
       "producerProduct": "dfr",
@@ -48,7 +48,7 @@
         "categoryName": "SmartPhone"
       },
       "importDateProduct": "2021-08-24",
-      "exportDateProduct": "2021-09-02",
+      "exportDateProduct": "2021-10-26",
       "status": "con hang",
       "id": 4
     },
@@ -70,6 +70,25 @@
       "exportDateProduct": "2021-08-27",
       "status": "het hang",
       "id": 5
+    },
+    {
+      "productCode": "SP-0943",
+      "productName": "eee",
+      "priceProduct": "564",
+      "dateGroup": {
+        "importDateProduct": "2021-08-11",
+        "exportDateProduct": "2021-08-29"
+      },
+      "quantityProduct": "12",
+      "producerProduct": "453",
+      "category": {
+        "id": 1,
+        "categoryName": "Computer"
+      },
+      "importDateProduct": "2021-08-11",
+      "exportDateProduct": "2021-08-29",
+      "status": "con hang",
+      "id": 6
     }
   ]
 }

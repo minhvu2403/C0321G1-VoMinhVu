@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoadCssService} from "../../../service/load-css.service";
 import {ProductService} from "../../../service/product.service";
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {Category} from "../../../model/category";
 import {Product} from "../../../model/product";
 import {Router} from "@angular/router";
@@ -49,10 +49,11 @@ export class ProductCreateComponent implements OnInit {
   checkVail(attribute: string, error: string) {
     return (this.createForm.get(attribute).hasError(error) && (this.createForm.get(attribute).touched || this.createForm.get(attribute).dirty));
   }
-  checkValid(attribute:string ,error:string){
-    return(([attribute]) && this.createForm.get(attribute).hasError(error)
-      &&(([attribute]) && this.createForm.get(attribute).touched
-        ||([attribute]) && this.createForm.get(attribute).dirty));
+
+  checkValid(attribute: string,error: string) {
+    return (([attribute]) && this.createForm.get(attribute).hasError(error)
+      && (([attribute]) && this.createForm.get(attribute).touched
+        || ([attribute]) && this.createForm.get(attribute).dirty));
 
   }
 
@@ -76,38 +77,38 @@ export class ProductCreateComponent implements OnInit {
   //
   //   }, this.validDate)
   // }
-initForm(){
-    this.createForm =new FormGroup({
-      productCode: new FormControl('', [Validators.required, Validators.pattern('^SP-[0-9]{4}$')]),
-      productName:new FormControl('', [Validators.required,]),
-      priceProduct: new FormControl('', [Validators.required,]),
-      dateGroup:new FormGroup({
-        importDateProduct: new FormControl('', [Validators.required,
+  initForm() {
+    this.createForm = this.formBuilder.group({
+      productCode: ['', [Validators.required, Validators.pattern('^SP-[0-9]{4}$')]],
+      productName: ['', [Validators.required,]],
+      priceProduct: ['', [Validators.required,]],
+      dateGroup: this.formBuilder.group({
+        importDateProduct: ['', [Validators.required,
           // Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-(\\d{4})$')
-          Validators.pattern('^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$')
-        ]),
-        exportDateProduct: new FormControl('', [Validators.required,
+          //Validators.pattern('^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$')
+        ]],
+        exportDateProduct: ['', [Validators.required,
           // Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[012])-(\\d{4})$'),
-          Validators.pattern('^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$'),
+         // Validators.pattern('^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$'),
 
-        ]),
+        ]],
       },this.validDate),
-      quantityProduct: new FormControl('', [Validators.required, Validators.pattern('[0-9]+'), Validators.min(0)]),
-      producerProduct: new FormControl('', [Validators.required,]),
-      category: new FormControl('', [Validators.required,]),
+      quantityProduct: ['', [Validators.required, Validators.pattern('[0-9]+'), Validators.min(0)]],
+      producerProduct: ['', [Validators.required,]],
+      category: ['', [Validators.required,]],
     });
-}
+  }
 
   createProduct() {
     if (this.createForm.valid) {
-       console.log(this.createForm.value);
-       console.log('fjdh');
+      console.log(this.createForm.value);
+      console.log('fjdh');
       console.log(this.createForm.value.pwGroup);
       this.productObj = Object.assign({}, this.createForm.value);
       this.productObj.importDateProduct = this.createForm.value.dateGroup.importDateProduct;
       this.productObj.exportDateProduct = this.createForm.value.dateGroup.exportDateProduct;
       console.log('fkfkk')
-        console.log(this.productObj);
+      console.log(this.productObj);
       if (this.productObj.quantityProduct > 0) {
         this.productObj.status = 'con hang';
       } else {
@@ -115,7 +116,7 @@ initForm(){
       }
       console.log(JSON.stringify(this.productObj));
       this.productService.saveProduct(this.productObj).subscribe(data => {
-         this.router.navigateByUrl('/list');
+        this.router.navigateByUrl('/list');
       }, error => {
         console.log('Loi create:' + error);
       });
@@ -123,17 +124,17 @@ initForm(){
     }
   }
 
-  validDate(control: AbstractControl): any {
+  validDate(control: AbstractControl):any {
     let dayValue = control.value;
     let start = new Date(dayValue.importDateProduct);
     let end = new Date(dayValue.exportDateProduct);
-    console.log('start:'+JSON.stringify(start))
-    console.log('end' +JSON.stringify(end))
+    console.log('start:' + JSON.stringify(start))
+    console.log('end' + JSON.stringify(end))
     if (end.getTime() - start.getTime() <= 0) {
       return {validDate: true};
     }
     return null;
   }
-
-
 }
+
+
