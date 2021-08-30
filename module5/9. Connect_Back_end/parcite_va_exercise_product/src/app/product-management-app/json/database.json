@@ -1,0 +1,32 @@
+{
+  "category": [
+    {
+      "id": 2,
+      "name": "Samsung"
+    },
+    {
+      "id": 3,
+      "name": "LG"
+    },
+    {
+      "name": "Sonny",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "name": "IPhone 11",
+      "price": 1560000,
+      "description": "Like new",
+      "category": 2,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "IPhone X",
+      "price": 968000,
+      "description": "97%",
+      "category": 3
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import {CustomerEditComponent} from './customer-edit/customer-edit.component';
 import {CustomerCreateComponent} from './customer-create/customer-create.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {OrderModule} from "ngx-order-pipe";
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NgxPaginationModule,
     ReactiveFormsModule,
     FormsModule,
+    OrderModule
   ]
 })
 export class CustomerModule {

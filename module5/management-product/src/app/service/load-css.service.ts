@@ -5,15 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class LoadCssService {
 ​
-  constructor() { }
-​
+  constructor() { }​
+
   loadCss(src) {
     const css = document.createElement('link');
     css.rel = 'stylesheet';
     document.getElementsByTagName('head')[0].appendChild(css);
     css.href = src;
-  }
-​
+  }​
   loadScript(src) {
     const script = document.createElement('script');
     script.type = 'text/javascript';

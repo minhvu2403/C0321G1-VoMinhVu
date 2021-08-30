@@ -262,8 +262,8 @@
         "divisionName": "Hành Chính"
       },
       "educationDegree": {
-        "id": 2,
-        "educationDegreeName": "Cao đẳng"
+        "id": 3,
+        "educationDegreeName": "Đại học "
       },
       "position": {
         "id": 2,
@@ -313,6 +313,28 @@
         "educationDegreeName": "Đại học "
       },
       "id": 4
+    },
+    {
+      "employeeName": "anh",
+      "employeeBirthday": "2021-08-19",
+      "employeeCard": "123432433",
+      "employeeSalary": "1232",
+      "employeePhone": "0907575432",
+      "employeeEmail": "fjg@gmail.com",
+      "employeeAddress": "tirud",
+      "division": {
+        "id": 2,
+        "divisionName": "Hành Chính"
+      },
+      "educationDegree": {
+        "id": 2,
+        "educationDegreeName": "Cao đẳng"
+      },
+      "position": {
+        "id": 2,
+        "positionName": "Phục vụ"
+      },
+      "id": 5
     }
   ],
   "rent-types": [

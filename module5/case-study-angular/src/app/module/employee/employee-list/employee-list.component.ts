@@ -7,6 +7,7 @@ import {Employee} from "../../../model/employee/employee";
 import {Division} from "../../../model/employee/division";
 import {Positions} from "../../../model/employee/positions";
 import {EducationDegree} from "../../../model/employee/education-degree";
+import {OrderPipe} from "ngx-order-pipe";
 
 @Component({
   selector: 'app-employee-list',
@@ -19,6 +20,8 @@ export class EmployeeListComponent implements OnInit {
   idEmployee: number;
   nameEmployee: string;
   p = 0;
+  order: string = 'employeeName';
+  reverse: boolean = false;
   employeeModelObj: Employee = new Employee();
   divisions: Division[] = [];
   positions: Positions[] = [];
@@ -33,7 +36,8 @@ export class EmployeeListComponent implements OnInit {
               private loadService: LoadCssService,
               private formBuilder: FormBuilder,
               private toastr: ToastrService,
-              ) {
+              private orderPipe: OrderPipe
+  ) {
     loadService.loadCss('assets/css/mdb.min.css');
     // loadService.loadCss('assets/css/bootstrap.min.css');
     // loadService.loadScript('assets/js/jquery-3.6.0.js');
@@ -64,7 +68,8 @@ export class EmployeeListComponent implements OnInit {
       this.employees = data;
     })
   }
-  clickEmployee(){
+
+  clickEmployee() {
     this.employeeForm.reset();
     this.showAdd = true;
     this.showUpdate = false;
@@ -178,6 +183,7 @@ export class EmployeeListComponent implements OnInit {
       {'type': 'pattern', msg: 'Phone must format (090 || 091)XXXXXXX'},
     ],
   }
+  name: string;
 
   updateEmployee() {
     this.employeeModelObj.employeeName = this.employeeForm.value.employeeName;
@@ -215,5 +221,23 @@ export class EmployeeListComponent implements OnInit {
     });
     this.toastr.success('Delete successfully', 'Employee!');
 
+  }
+
+  Search() {
+    if (this.name === '') {
+      this.ngOnInit();
+    } else {
+      this.employees = this.employees.filter(value => {
+        return value.employeeName.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+      });
+    }
+    this.p = 0;
+  }
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+
+    this.order = value;
   }
 }

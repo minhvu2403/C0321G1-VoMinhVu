@@ -2,11 +2,23 @@
   <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <h2>Manage <b>Employee</b></h2>
         </div>
-
-        <div class="col-sm-6">
+        <div class="col-sm-4 ">
+<!--          <input  class="mb-3 mr-2" type="text" name="name" [(ngModel)]="name" placeholder="Enter name...">-->
+<!--          <button class="btn btn-primary mb-3" (click)="Search()">Search</button>-->
+          <div class="input-group">
+            <div class="form-outline">
+              <input id="search-input" type="search" id="form1" class="form-control" name="name" [(ngModel)]="name" />
+              <label class="form-label" for="form1">Search</label>
+            </div>
+            <button id="search-button" type="button" class="btn btn-primary" (click)="Search()">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-4">
           <a (click)="clickEmployee()" class="add btn btn-success" data-toggle="modal" data-target="#exampleModal"><i
             class="material-icons" title="add">&#xE147;</i><span>Add New Employee</span></a>
         </div>
@@ -17,7 +29,9 @@
       <thead>
       <tr>
         <th class="pl-1 fw-bold">STT</th>
-        <th class="pl-1 fw-bold">Name</th>
+        <th class="pl-1 fw-bold"  [class.active]="order === 'info.name'"
+             (click)="setOrder('employeeName')" >Name<span [hidden]="reverse">▼</span
+        ><span [hidden]="!reverse">▲</span></th>
         <th class="pl-1 fw-bold">Position</th>
         <th class="pl-1 fw-bold">Division</th>
         <th class="pl-1 fw-bold">Birthday</th>
@@ -31,7 +45,7 @@
       </thead>
       <tbody class="bg-white">
 
-      <tr *ngFor="let employee of employees| paginate: { itemsPerPage: 5, currentPage: p},  let i = index ">
+      <tr *ngFor="let employee of employees | orderBy: order:reverse| paginate: { itemsPerPage: 5, currentPage: p},  let i = index ">
         <td class="pl-1 pr-0 align-middle">{{ i + 1 }}</td>
         <td class="pl-1 pr-0 align-middle">{{ employee.employeeName }}</td>
         <td class="pl-1 pr-0 align-middle">{{ employee.position.positionName }}</td>

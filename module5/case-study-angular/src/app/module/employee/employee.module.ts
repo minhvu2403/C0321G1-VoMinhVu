@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import {NgxPaginationModule} from "ngx-pagination";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {OrderModule} from "ngx-order-pipe";
 
 
 @NgModule({
@@ -12,12 +13,14 @@ import {ReactiveFormsModule} from "@angular/forms";
   exports: [
     EmployeeListComponent,
   ],
-  imports: [
-    CommonModule,
-    EmployeeRoutingModule,
-    NgxPaginationModule,
-    ReactiveFormsModule,
+    imports: [
+        CommonModule,
+        EmployeeRoutingModule,
+        NgxPaginationModule,
+        ReactiveFormsModule,
+        FormsModule,
+        OrderModule,
 
-  ]
+    ]
 })
 export class EmployeeModule { }
